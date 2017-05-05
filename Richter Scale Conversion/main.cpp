@@ -5,8 +5,8 @@
 //http://www.cse.msu.edu/~cse231/PracticeOfComputingUsingPython/
 
 #include "stdafx.h"
-#include <iostream>
-#include <cmath>
+#include <iostream>			//for input/output
+#include <iomanip>			//to format the output
 
 //prototyping our two functions
 
@@ -17,22 +17,25 @@ int main()
 
 	double richterValue;
 	long double joules;
-	long double tnt;
+	long double tonsOfTnt;
 
 	std::cout << "Enter the Richter Scale value:";
 	std::cin >> richterValue;
 	std::cout << "\n";
 
-	//the next step is to calculate the joules of enery created by the earthquake. Let;s use a function.
+	//the next step is to do calculations
 
 	joules = pow(10, (1.5 * richterValue) + 4.8);	//converts to joules
-	tnt = joules / pow(4.184 * 10, 9);				//converts to tnt
+	tonsOfTnt = joules / (4.184 * pow(10, 9));		//converts to tonsOfTnt
 	
-	std::cout << "\n" << richterValue << " on the Richter scale" << std::endl
-		<< "Is equivalent to:\n\n" << joules << " Joules\n" << std::endl << tnt << " tons of TNT";
+	//now we display it, keeping formatting in mind
 
-	std::cin.ignore();
-	std::cin.get();
+	std::cout << std::fixed << "\n" << richterValue << " on the Richter scale" << std::endl
+		<< "Is equivalent to:\n\n" << joules << " Joules\n" << std::endl << tonsOfTnt << " tons of TNT";
+
+
+	std::cin.ignore();			//flushes the input buffer
+	std::cin.get();				//pauses the program
 
     return 0;
 }
