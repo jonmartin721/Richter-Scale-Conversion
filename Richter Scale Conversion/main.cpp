@@ -8,6 +8,8 @@
 #include <iostream>			//for input/output
 #include <iomanip>			//to format the output
 
+
+
 //prototyping our two functions
 
 int main()
@@ -18,6 +20,7 @@ int main()
 	double richterValue;
 	long double joules;
 	long double tonsOfTnt;
+	
 
 	std::cout << "Enter the Richter Scale value:";
 	std::cin >> richterValue;
@@ -30,12 +33,13 @@ int main()
 	
 	//now we display it, keeping formatting in mind
 
-	std::cout << std::fixed << "\n" << richterValue << " on the Richter scale" << std::endl
-		<< "Is equivalent to:\n\n" << joules << " Joules\n" << std::endl << tonsOfTnt << " tons of TNT";
+	std::cout << "\n" << richterValue << " on the Richter scale" << std::endl
+		<< "Is equivalent to:\n\n" << std::fixed << joules << " Joules" << std::endl << tonsOfTnt << " tons of TNT";
 
+	std::cout << "\n\n\nPress enter to exit.";
 
 	std::cin.ignore();			//flushes the input buffer
 	std::cin.get();				//pauses the program
-
+	
     return 0;
 }
